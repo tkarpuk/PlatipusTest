@@ -24,6 +24,7 @@ namespace PlatipusTest
                     Description = "An ASP.NET Core Web API for reversing...",                    
                 });
             });
+            //services.AddCors();
 
             services.AddTransient<ReverseService>();
         }
@@ -38,6 +39,7 @@ namespace PlatipusTest
 
             app.UseRouting();
 
+            //app.UseCors(builder => builder.AllowAnyOrigin());
             app.UseSwagger();
             app.UseSwaggerUI(options =>
             {
