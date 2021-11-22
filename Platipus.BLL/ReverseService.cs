@@ -4,9 +4,9 @@ namespace Platipus.BLL
 {
     public class ReverseService
     {
-        private readonly IReverse _reverser;
+        private IReverse _reverser;
 
-        public ReverseService(string data)
+        private void PrepareService(string data)
         {
             int dataAsInt;
             if (int.TryParse(data, out dataAsInt))
@@ -19,8 +19,9 @@ namespace Platipus.BLL
             }
         }
 
-        public object GetResult()
+        public object GetResult(string data)
         {
+            PrepareService(data);
             return _reverser.GetReverse();
         }
     }

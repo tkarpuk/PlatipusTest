@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using Swashbuckle;
+using Platipus.BLL;
 
 namespace PlatipusTest
 {
@@ -24,6 +24,8 @@ namespace PlatipusTest
                     Description = "An ASP.NET Core Web API for reversing...",                    
                 });
             });
+
+            services.AddTransient<ReverseService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
