@@ -9,8 +9,6 @@ namespace PlatipusTest
 {
     public class Startup
     {
-        // This method gets called by the runtime. Use this method to add services to the container.
-        // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
@@ -24,12 +22,11 @@ namespace PlatipusTest
                     Description = "An ASP.NET Core Web API for reversing...",                    
                 });
             });
-            //services.AddCors();
+            services.AddCors();
 
             services.AddTransient<ReverseService>();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -39,7 +36,7 @@ namespace PlatipusTest
 
             app.UseRouting();
 
-            //app.UseCors(builder => builder.AllowAnyOrigin());
+            app.UseCors(builder => builder.AllowAnyOrigin());
             app.UseSwagger();
             app.UseSwaggerUI(options =>
             {
