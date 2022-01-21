@@ -25,6 +25,8 @@ namespace PlatipusTest
             services.AddCors();
 
             services.AddTransient<ReverseService>();
+            //services.AddHostedService<HelloWorldHostedService>();
+            services.AddHostedService<HelloWorldHostedServiceBack>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
